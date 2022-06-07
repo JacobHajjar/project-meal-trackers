@@ -19,6 +19,7 @@
 		7AFC4FA0284F119900EDC238 /* StartupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFC4F9F284F119900EDC238 /* StartupView.swift */; };
 		7AFC4FA7284F294A00EDC238 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AFC4FA6284F294A00EDC238 /* Launch Screen.storyboard */; };
 		7AFC4FAA284F2BC000EDC238 /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFC4FA9284F2BC000EDC238 /* JournalView.swift */; };
+		7AFC4FB22850100D00EDC238 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFC4FB12850100D00EDC238 /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		7AFC4FA5284F26E700EDC238 /* Everyday-Meal-Tracker-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Everyday-Meal-Tracker-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7AFC4FA6284F294A00EDC238 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		7AFC4FA9284F2BC000EDC238 /* JournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
+		7AFC4FB12850100D00EDC238 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 		7AFC4F9D284F111000EDC238 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				7AFC4FB02850091700EDC238 /* Search */,
 				7AFC4FA1284F127900EDC238 /* Dashboard */,
 				7AFC4FA8284F2B8A00EDC238 /* Journal */,
 				7AFC4F9E284F111800EDC238 /* Startup */,
@@ -190,6 +193,14 @@
 			children = (
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		7AFC4FB02850091700EDC238 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				7AFC4FB12850100D00EDC238 /* SearchView.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,6 +337,7 @@
 				7AC73425284F0FF400339115 /* Everyday_Meal_Tracker.xcdatamodeld in Sources */,
 				7AC73422284F0FF400339115 /* Persistence.swift in Sources */,
 				7AC7341B284F0FF300339115 /* ContentView.swift in Sources */,
+				7AFC4FB22850100D00EDC238 /* SearchView.swift in Sources */,
 				7AFC4FA0284F119900EDC238 /* StartupView.swift in Sources */,
 				7AFC4FAA284F2BC000EDC238 /* JournalView.swift in Sources */,
 				7AC73419284F0FF300339115 /* Everyday_Meal_TrackerApp.swift in Sources */,
