@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7AAD0BAC28514A550095DEA7 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7AAD0BAB28514A550095DEA7 /* .gitignore */; };
+		7AAD0BAE28514A6A0095DEA7 /* .gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = 7AAD0BAD28514A6A0095DEA7 /* .gitattributes */; };
 		7AC73419284F0FF300339115 /* Everyday_Meal_TrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC73418284F0FF300339115 /* Everyday_Meal_TrackerApp.swift */; };
 		7AC7341B284F0FF300339115 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC7341A284F0FF300339115 /* ContentView.swift */; };
 		7AC7341D284F0FF400339115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AC7341C284F0FF400339115 /* Assets.xcassets */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7AAD0BAB28514A550095DEA7 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		7AAD0BAD28514A6A0095DEA7 /* .gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
 		7AC73415284F0FF300339115 /* Everyday Meal Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Everyday Meal Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AC73418284F0FF300339115 /* Everyday_Meal_TrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Everyday_Meal_TrackerApp.swift; sourceTree = "<group>"; };
 		7AC7341A284F0FF300339115 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 		7AC7340C284F0FF300339115 = {
 			isa = PBXGroup;
 			children = (
+				7AAD0BAD28514A6A0095DEA7 /* .gitattributes */,
+				7AAD0BAB28514A550095DEA7 /* .gitignore */,
 				7AC73417284F0FF300339115 /* Everyday Meal Tracker */,
 				7AC7342D284F0FF400339115 /* Everyday Meal TrackerTests */,
 				7AC73437284F0FF400339115 /* Everyday Meal TrackerUITests */,
@@ -307,6 +313,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AAD0BAE28514A6A0095DEA7 /* .gitattributes in Resources */,
+				7AAD0BAC28514A550095DEA7 /* .gitignore in Resources */,
 				7AFC4FA7284F294A00EDC238 /* Launch Screen.storyboard in Resources */,
 				7AC73420284F0FF400339115 /* Preview Assets.xcassets in Resources */,
 				7AC7341D284F0FF400339115 /* Assets.xcassets in Resources */,
