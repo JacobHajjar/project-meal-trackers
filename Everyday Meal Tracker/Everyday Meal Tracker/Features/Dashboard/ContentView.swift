@@ -25,6 +25,14 @@ struct ContentView: View {
                 ListEntry(entryHeight: 50, entryWidth: geometry.size.width - 20)
                 ListEntry(entryHeight: 50, entryWidth: geometry.size.width - 20)
                 ListEntry(entryHeight: 50, entryWidth: geometry.size.width - 20)
+                Spacer()
+                Button("Add Food Entry") {
+                    //TODO code for button press
+                }.frame(width: 200, height: 50)
+                .background(Color.orange)
+                .foregroundColor(Color.white)
+                .cornerRadius(5)
+                .padding(.bottom, 20.0)
             }
         }
     }
