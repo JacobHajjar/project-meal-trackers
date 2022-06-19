@@ -8,18 +8,28 @@
 import SwiftUI
 
 struct SearchView: View {
-        private var listOfFood = foodList
-        @State var searchText = ""
-        var body: some View {
-            NavigationView {
-                List {
-                    
+    private var listOfFood = foodList
+    @State private var searchText = ""
+    var body: some View {
+        NavigationView {
+                    List {
+                        ForEach(searchResults, id: \.self) { name in
+                            NavigationLink(destination: SearchResultView()) {
+                                Text(name).bold()
+                            }
+                        }
+                    }
+                    .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Look for something")                    .navigationTitle("Food Search")
                 }
-                .searchable(text: $searchText)
-                .navigationTitle("Search")
-            }
+    }
+    var searchResults: [String] {
+        if searchText.isEmpty {
+            return listOfFood
+        } else {
+            return listOfFood.filter { $0.contains(searchText) }
         }
     }
+}
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
@@ -33,3 +43,14 @@ public var foodList = [
     "Bacon",
     "Eggs",
 ]
+
+
+struct SearchResultView: View {
+    var body: some View {
+        VStack{
+            HStack{
+                Text("First one")
+            }
+        }
+    }
+}
