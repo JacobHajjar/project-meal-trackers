@@ -11,16 +11,35 @@ struct ListEntry: View {
     var entryHeight : CGFloat
     var entryWidth : CGFloat
     var body: some View {
-        HStack {
-            Text("Total - 100 - 17 - 10 - 6")
+        VStack(spacing: 0) {
+            ZStack {
+                Rectangle()
+                    .fill(Color.orange)
+                    .frame(height: entryHeight / 2)
+                Text("Milk")
+            }
+            Spacer()
+            HStack {
+                Spacer()
+                Text("100")
+                Spacer()
+                Text("9")
+                Spacer()
+                Text("8")
+                Spacer()
+                Text("2")
+                Spacer()
+            }
+            Spacer()
         }.frame(width: entryWidth, height: entryHeight)
-            .background(Color.orange.opacity(0.7))
+        .background(Color.orange.opacity(0.7))
         .cornerRadius(10)
+        .padding(.top, 8)
     }
 }
 
 struct ListEntry_Previews: PreviewProvider {
     static var previews: some View {
-        ListEntry(entryHeight: 50, entryWidth: 290)
+        ListEntry(entryHeight: 60, entryWidth: 290)
     }
 }

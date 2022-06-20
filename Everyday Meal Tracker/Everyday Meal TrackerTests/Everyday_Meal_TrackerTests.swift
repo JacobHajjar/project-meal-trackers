@@ -9,28 +9,49 @@ import XCTest
 @testable import Everyday_Meal_Tracker
 
 class Everyday_Meal_TrackerTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    func testTotalCalories() {
+        var today = DailyIntake()
+        var milk = Food()
+        milk.calories = 50
+        var apple = Food()
+        apple.calories = 70
+        today.add(milk)
+        today.add(apple)
+        XCTAssertEqual(today.totalCalories, 120)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testTotalProtein() {
+        var today = DailyIntake()
+        var milk = Food()
+        milk.protein = 5
+        var apple = Food()
+        apple.protein = 7
+        today.add(milk)
+        today.add(apple)
+        XCTAssertEqual(today.totalProtein, 12)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testTotalCarbs() {
+        var today = DailyIntake()
+        var milk = Food()
+        milk.carbohydrates = 5
+        var apple = Food()
+        apple.carbohydrates = 7
+        today.add(milk)
+        today.add(apple)
+        XCTAssertEqual(today.totalCarbs, 12)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testTotalFat() {
+        var today = DailyIntake()
+        var milk = Food()
+        milk.fat = 5
+        var apple = Food()
+        apple.fat = 7
+        today.add(milk)
+        today.add(apple)
+        XCTAssertEqual(today.totalFat, 12)
     }
-
+    func testEmptyFoodList() {
+        let today = DailyIntake()
+        XCTAssertEqual(today.totalCalories, 0)
+    }
 }
