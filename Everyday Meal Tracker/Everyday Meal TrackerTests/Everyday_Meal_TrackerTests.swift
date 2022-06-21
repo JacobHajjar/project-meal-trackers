@@ -12,9 +12,9 @@ class Everyday_Meal_TrackerTests: XCTestCase {
     
     func testTotalCalories() {
         var today = DailyIntake()
-        var milk = Food()
+        let milk = Food()
         milk.calories = 50
-        var apple = Food()
+        let apple = Food()
         apple.calories = 70
         today.add(milk)
         today.add(apple)
@@ -22,9 +22,9 @@ class Everyday_Meal_TrackerTests: XCTestCase {
     }
     func testTotalProtein() {
         var today = DailyIntake()
-        var milk = Food()
+        let milk = Food()
         milk.protein = 5
-        var apple = Food()
+        let apple = Food()
         apple.protein = 7
         today.add(milk)
         today.add(apple)
@@ -32,9 +32,9 @@ class Everyday_Meal_TrackerTests: XCTestCase {
     }
     func testTotalCarbs() {
         var today = DailyIntake()
-        var milk = Food()
+        let milk = Food()
         milk.carbohydrates = 5
-        var apple = Food()
+        let apple = Food()
         apple.carbohydrates = 7
         today.add(milk)
         today.add(apple)
@@ -42,9 +42,9 @@ class Everyday_Meal_TrackerTests: XCTestCase {
     }
     func testTotalFat() {
         var today = DailyIntake()
-        var milk = Food()
+        let milk = Food()
         milk.fat = 5
-        var apple = Food()
+        let apple = Food()
         apple.fat = 7
         today.add(milk)
         today.add(apple)

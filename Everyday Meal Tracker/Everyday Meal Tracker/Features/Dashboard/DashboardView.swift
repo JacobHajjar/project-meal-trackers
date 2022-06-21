@@ -9,6 +9,7 @@ import SwiftUI
 import CoreData
 
 struct DashboardView: View {
+    @StateObject var currentIntake = DailyIntake()
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
@@ -19,26 +20,40 @@ struct DashboardView: View {
                     .font(.system(size: 20, weight: .bold, design: .default))
                     .padding(.bottom, geometry.size.height / 40)
                     HStack {
-                        Text("Calorie")
+                        VStack {
+                            Text("Calories")
+                            Text("\(currentIntake.totalCalories)")
+                            
+                        }
                         Spacer()
-                        Text("Protein")
+                        VStack {
+                            Text("Protein")
+                            Text("\(currentIntake.totalProtein)")
+                        }
                         Spacer()
-                        Text("Carbs")
+                        VStack {
+                            Text("Carbs")
+                            Text("\(currentIntake.totalCarbs)")
+                        }
                         Spacer()
-                        Text("Fat")
+                        VStack {
+                            Text("Fat")
+                            Text("\(currentIntake.totalFat)")
+                        }
                     }.frame(width: geometry.size.width - 60)
                     .padding(.bottom, 5)
                 }
-                .frame(maxWidth: .infinity, maxHeight: geometry.size.height / 7)
+                .frame(maxWidth: .infinity, maxHeight: geometry.size.height / 6)
                 .background(Color.orange)
                 .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 10)
                 ZStack {
                     VStack (spacing: 0) {
                         ScrollView {
                             VStack(spacing: 0) {
-                                ListEntry(entryHeight: 60, entryWidth: geometry.size.width - 20)
-                                ListEntry(entryHeight: 60, entryWidth: geometry.size.width - 20)
-                                ListEntry(entryHeight: 60, entryWidth: geometry.size.width - 20)
+                                ForEach(currentIntake.foodEaten) {
+                                    foodElement in
+                                        ListEntry(entryHeight: 60, entryWidth: geometry.size.width - 20, foodItem: foodElement)
+                                }
                             }
                         }
                         Spacer()
@@ -48,7 +63,7 @@ struct DashboardView: View {
                         HStack {
                             Spacer()
                             Button {
-                                //TODO code for button press
+                                currentIntake.foodEaten.append(Food())
                             } label: {
                                 Image(systemName: "plus")
                                     .imageScale(.large)

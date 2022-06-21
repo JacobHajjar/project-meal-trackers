@@ -7,19 +7,52 @@
 
 import Foundation
 
-struct DailyIntake {
-    var totalCalories : Int = 0
-    var totalProtein : Int = 0
-    var totalCarbs: Int = 0
-    var totalFat : Int = 0
+class DailyIntake : ObservableObject {
     
-    private(set) var foodEaten : [Food] = []
+    init() {
+        
+    }
     
-    mutating func add(_ eatenFood: Food) {
+    var totalCalories : Int {
+        var sum = 0
+        for food in foodEaten {
+            let convertedNum = Int(food.calories) ?? 0
+            sum+=convertedNum
+        }
+        return sum
+    }
+    var totalProtein : Int {
+        var sum = 0
+        for food in foodEaten {
+            let convertedNum = Int(food.protein) ?? 0
+            sum+=convertedNum
+        }
+        return sum
+    }
+    var totalCarbs: Int {
+        var sum = 0
+        for food in foodEaten {
+            let convertedNum = Int(food.carbohydrates) ?? 0
+            sum+=convertedNum
+        }
+        return sum
+    }
+    var totalFat : Int {
+        var sum = 0
+        for food in foodEaten {
+            let convertedNum = Int(food.fat) ?? 0
+            sum+=convertedNum
+        }
+        return sum
+    }
+    
+    @Published var foodEaten : [Food] = []
+    
+   /* func add(_ eatenFood: Food) {
         foodEaten.append(eatenFood)
-        totalCalories+=eatenFood.calories
+        totalCalories+=Int(eatenFood.calories)
         totalProtein+=eatenFood.protein
         totalCarbs+=eatenFood.carbohydrates
         totalFat+=eatenFood.fat
-    }
+    }*/
 }
