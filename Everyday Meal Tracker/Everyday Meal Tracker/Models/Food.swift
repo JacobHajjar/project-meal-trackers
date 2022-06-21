@@ -7,10 +7,11 @@
 
 import Foundation
 
-struct Food {
-    var name : String = ""
-    var calories : Int = 0
-    var protein : Int = 0
-    var carbohydrates : Int = 0
-    var fat : Int = 0
+class Food : ObservableObject, Identifiable {
+    var id = UUID()
+    @Published var name : String = ""
+    @Published var calories : String = ""
+    @Published var protein : String = ""
+    @Published var carbohydrates : String = ""
+    @Published var fat : String = ""
 }
