@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22EB5D082856519100928341 /* search_class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB5D072856519100928341 /* search_class.swift */; };
 		1D01E8CE2857B90900F66633 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D01E8CD2857B90900F66633 /* Food.swift */; };
 		1D01E8D228583AD800F66633 /* ListEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D01E8D128583AD800F66633 /* ListEntry.swift */; };
 		1D3B1290285DD09C0062C702 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B128F285DD09C0062C702 /* ContentView.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22EB5D072856519100928341 /* search_class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = search_class.swift; sourceTree = "<group>"; };
 		1D01E8CD2857B90900F66633 /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		1D01E8D128583AD800F66633 /* ListEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEntry.swift; sourceTree = "<group>"; };
 		1D3B128F285DD09C0062C702 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				7AFC4FB12850100D00EDC238 /* SearchView.swift */,
+				22EB5D072856519100928341 /* search_class.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22EB5D082856519100928341 /* search_class.swift in Sources */,
 				7AC73425284F0FF400339115 /* Everyday_Meal_Tracker.xcdatamodeld in Sources */,
 				7AC73422284F0FF400339115 /* Persistence.swift in Sources */,
 				7AC7341B284F0FF300339115 /* DashboardView.swift in Sources */,

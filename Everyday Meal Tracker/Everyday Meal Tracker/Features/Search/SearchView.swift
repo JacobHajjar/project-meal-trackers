@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct SearchView: View {
+    @StateObject var MealData = MealDataClass()
+    @State private var searchText = ""
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List {
+                ForEach(MealData.meals) {
+                    meal in
+                    NavigationLink(destination: Text("Calories:\(meal.calorie)Fat:\(meal.fat)")) {
+                        Text(meal.name)
+                    }                }
+            }
+            .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Look for something").navigationTitle("Meal Search")
+        }.environmentObject(MealData)
     }
 }
 
