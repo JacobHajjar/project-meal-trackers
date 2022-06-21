@@ -8,49 +8,24 @@
 import SwiftUI
 
 struct SearchView: View {
-    private var listOfFood = foodList
+    @StateObject var MealData = MealDataClass()
     @State private var searchText = ""
     var body: some View {
         NavigationView {
-                    List {
-                        ForEach(searchResults, id: \.self) { name in
-                            NavigationLink(destination: SearchResultView()) {
-                                Text(name).bold()
-                            }
-                        }
-                    }
-                    .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Look for something")                    .navigationTitle("Food Search")
-                }
-    }
-    var searchResults: [String] {
-        if searchText.isEmpty {
-            return listOfFood
-        } else {
-            return listOfFood.filter { $0.contains(searchText) }
-        }
+            List {
+                ForEach(MealData.meals) {
+                    meal in
+                    NavigationLink(destination: Text("Calories:\(meal.calorie)Fat:\(meal.fat)")) {
+                        Text(meal.name)
+                    }                }
+            }
+            .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Look for something").navigationTitle("Meal Search")
+        }.environmentObject(MealData)
     }
 }
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
         SearchView()
-    }
-}
-
-public var foodList = [
-    "Salad",
-    "Chicken",
-    "Bacon",
-    "Eggs",
-]
-
-
-struct SearchResultView: View {
-    var body: some View {
-        VStack{
-            HStack{
-                Text("First one")
-            }
-        }
     }
 }

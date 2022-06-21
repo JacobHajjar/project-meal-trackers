@@ -7,28 +7,24 @@
 
 import Foundation
 
+class MealDataClass: ObservableObject {
+    @Published var meals: [Meal] = []
 
-protocol FoodData: ObservableObject {
-    var name: String { get set }
-    var calories: String { get set }
-    var protein: String { get set }
-    var fat: String { get set }
-    var carbohydrates: String { get set }
+    init() {
+        meals.append(Meal(name: "Eggs", calorie:"10g", protein: "5g" , fat: "3g" , carbohydrates: "10g"))
+        meals.append(Meal(name: "Bacon", calorie:"20g", protein: "8g" , fat: "4g" , carbohydrates: "11g"))
+        meals.append(Meal(name: "Salad", calorie:"10g", protein: "4g" , fat: "2g" , carbohydrates: "23g"))
+        meals.append(Meal(name: "Chicken", calorie:"10g", protein: "12g" , fat: "1g" , carbohydrates: "30g"))
+        meals.append(Meal(name: "Fish", calorie:"10g", protein: "1g" , fat: "2g" , carbohydrates: "20g"))
+    }
 }
 
-class Search: FoodData {
+struct Meal: Identifiable {
+    var id = UUID()
     var name: String
-    var calories: String
+    var calorie: String
     var protein: String
     var fat: String
     var carbohydrates: String
-  
-    init(name:String,calories:String,protein:String,fat:String,carbohydrates:String){
-        self.name = name
-        self.calories = calories
-        self.protein = protein
-        self.fat = fat
-        self.carbohydrates = carbohydrates
-    }
 }
 
