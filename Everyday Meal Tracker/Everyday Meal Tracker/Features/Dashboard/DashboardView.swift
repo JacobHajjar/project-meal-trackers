@@ -22,23 +22,23 @@ struct DashboardView: View {
                     HStack {
                         VStack {
                             Text("Calories")
-                            Text("\(currentIntake.totalCalories)")
+                            Text("\(currentIntake.totalCalories, specifier: "%.1f")")
                             
                         }
                         Spacer()
                         VStack {
                             Text("Protein")
-                            Text("\(currentIntake.totalProtein)")
+                            Text("\(currentIntake.totalProtein, specifier: "%.1f")")
                         }
                         Spacer()
                         VStack {
                             Text("Carbs")
-                            Text("\(currentIntake.totalCarbs)")
+                            Text("\(currentIntake.totalCarbs, specifier: "%.1f")")
                         }
                         Spacer()
                         VStack {
                             Text("Fat")
-                            Text("\(currentIntake.totalFat)")
+                            Text("\(currentIntake.totalFat, specifier: "%.1f")")
                         }
                     }.frame(width: geometry.size.width - 60)
                     .padding(.bottom, 5)
@@ -50,9 +50,10 @@ struct DashboardView: View {
                     VStack (spacing: 0) {
                         ScrollView {
                             VStack(spacing: 0) {
-                                ForEach(currentIntake.foodEaten) {
+                                ForEach($currentIntake.foodEaten) {
                                     foodElement in
-                                        ListEntry(entryHeight: 60, entryWidth: geometry.size.width - 20, foodItem: foodElement)
+                                        ListEntry(entryHeight: 60, entryWidth: geometry.size.width - 20, name: foodElement.name, calories: foodElement.calories, protein: foodElement.protein, carbohydrates: foodElement.carbohydrates,
+                                                  fat: foodElement.fat)
                                 }
                             }
                         }
@@ -73,6 +74,7 @@ struct DashboardView: View {
                             .foregroundColor(Color.white)
                             .cornerRadius(5)
                             .padding()
+                            
                         }
                     }
                 }

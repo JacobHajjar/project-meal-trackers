@@ -28,6 +28,7 @@ struct ContentView: View {
                     .fill(Color.orange)
                     .frame(width: geometry.size.width, height: geometry.size.height / 10)
                     .shadow(color: Color.black.opacity(0.4), radius: 10)
+                    .ignoresSafeArea()
                     HStack {
                         Spacer()
                         Button {

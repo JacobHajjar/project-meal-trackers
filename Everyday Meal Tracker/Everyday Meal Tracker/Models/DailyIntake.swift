@@ -13,46 +13,43 @@ class DailyIntake : ObservableObject {
         
     }
     
-    var totalCalories : Int {
-        var sum = 0
+    var totalCalories : Double {
+        var sum : Double = 0
         for food in foodEaten {
-            let convertedNum = Int(food.calories) ?? 0
-            sum+=convertedNum
+            if let convertedNum = Double(food.calories) {
+                sum+=convertedNum
+            }
         }
         return sum
     }
-    var totalProtein : Int {
-        var sum = 0
+    var totalProtein : Double {
+        var sum : Double = 0
         for food in foodEaten {
-            let convertedNum = Int(food.protein) ?? 0
-            sum+=convertedNum
+            if let convertedNum = Double(food.protein) {
+                sum+=convertedNum
+            }
         }
         return sum
     }
-    var totalCarbs: Int {
-        var sum = 0
+    var totalCarbs: Double {
+        var sum : Double = 0
         for food in foodEaten {
-            let convertedNum = Int(food.carbohydrates) ?? 0
-            sum+=convertedNum
+            if let convertedNum = Double(food.carbohydrates) {
+                sum+=convertedNum
+            }
         }
         return sum
     }
-    var totalFat : Int {
-        var sum = 0
+    var totalFat : Double {
+        var sum : Double = 0
         for food in foodEaten {
-            let convertedNum = Int(food.fat) ?? 0
-            sum+=convertedNum
+            if let convertedNum = Double(food.fat) {
+                sum+=convertedNum
+            }
         }
         return sum
-    }
+    } 
     
     @Published var foodEaten : [Food] = []
     
-   /* func add(_ eatenFood: Food) {
-        foodEaten.append(eatenFood)
-        totalCalories+=Int(eatenFood.calories)
-        totalProtein+=eatenFood.protein
-        totalCarbs+=eatenFood.carbohydrates
-        totalFat+=eatenFood.fat
-    }*/
 }

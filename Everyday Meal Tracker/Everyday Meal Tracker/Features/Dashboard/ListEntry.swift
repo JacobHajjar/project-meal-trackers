@@ -8,9 +8,18 @@
 import SwiftUI
 
 struct ListEntry: View {
-    var entryHeight : CGFloat
-    var entryWidth : CGFloat
-    @StateObject var foodItem : Food
+    var entryHeight: CGFloat
+    var entryWidth: CGFloat
+    @Binding var name: String
+    @Binding var calories: String
+    @Binding var protein: String
+    @Binding var carbohydrates: String
+    @Binding var fat: String
+    @FocusState private var calorieFieldIsFocused: Bool
+    @FocusState private var proteinFieldIsFocused: Bool
+    @FocusState private var carbFieldIsFocused: Bool
+    @FocusState private var fatFieldIsFocused: Bool
+
     var body: some View {
         VStack(spacing: 0) {
             ZStack {
@@ -19,42 +28,84 @@ struct ListEntry: View {
                     .frame(height: entryHeight / 2)
                 TextField(
                     "Enter Food Name",
-                    text: $foodItem.name
-                ).frame(width: entryWidth)
+                    text: $name).frame(width: entryWidth)
                     .multilineTextAlignment(.center)
             }
             Spacer()
-            HStack (spacing: 0) {
+            HStack(spacing: 0) {
                 TextField(
                     "Calories",
-                    text: $foodItem.calories
-                ).frame(width: entryWidth / 4)
+                    text: $calories)
+                    .focused($calorieFieldIsFocused)
+                    .onChange(of: calorieFieldIsFocused) {
+                        _ in
+                        if doubleIsInvalid(of: calories) {
+                            calories = ""
+                        }
+                    }
+                    .frame(width: entryWidth / 4)
                     .multilineTextAlignment(.center)
+                    .keyboardType(.decimalPad)
                 TextField(
                     "Protein",
-                    text: $foodItem.protein
-                ).frame(width: entryWidth / 4)
+                    text: $protein)
+                    .focused($proteinFieldIsFocused)
+                    .onChange(of: proteinFieldIsFocused) {
+                        _ in
+                        if doubleIsInvalid(of: protein) {
+                            protein = ""
+                        }
+                    }
+                    .frame(width: entryWidth / 4)
                     .multilineTextAlignment(.center)
+                    .keyboardType(.decimalPad)
                 TextField(
                     "Carbs",
-                    text: $foodItem.carbohydrates
-                ).frame(width: entryWidth / 4)
+                    text: $carbohydrates)
+                    .focused($carbFieldIsFocused)
+                    .onChange(of: carbFieldIsFocused) {
+                        _ in
+                        if doubleIsInvalid(of: carbohydrates) {
+                            carbohydrates = ""
+                        }
+                    }
+                    .frame(width: entryWidth / 4)
                     .multilineTextAlignment(.center)
+                    .keyboardType(.decimalPad)
                 TextField(
                     "Fat",
-                    text: $foodItem.fat
-                ).frame(width: entryWidth / 4).multilineTextAlignment(.center)
+                    text: $fat)
+                    .focused($fatFieldIsFocused)
+                    .onChange(of: fatFieldIsFocused) {
+                        _ in
+                        if doubleIsInvalid(of: fat) {
+                            fat = ""
+                        }
+                    }
+                    .frame(width: entryWidth / 4)
+                    .multilineTextAlignment(.center)
+                    .keyboardType(.decimalPad)
             }
             Spacer()
         }.frame(width: entryWidth, height: entryHeight)
-        .background(Color.orange.opacity(0.7))
-        .cornerRadius(10)
-        .padding(.top, 8)
+            .background(Color.orange.opacity(0.7))
+            .cornerRadius(10)
+            .padding(.top, 8)
     }
 }
 
-struct ListEntry_Previews: PreviewProvider {
-    static var previews: some View {
-        ListEntry(entryHeight: 60, entryWidth: 290, foodItem: Food())
+func doubleIsInvalid(of doubleString: String) -> Bool {
+    if let _ = Double(doubleString) {
+        return false
+    } else {
+        return true
     }
 }
+
+/* struct ListEntry_Previews: PreviewProvider {
+     static var previews: some View {
+         @State var foodPreview = Food()
+         ListEntry(entryHeight: 60, entryWidth: 200, name: $foodPreview.name, calories: $foodPreview.name, protein: $foodPreview.name, carbohydrates: $foodPreview.name,
+                   fat: $foodPreview.name)
+     }
+ } */
