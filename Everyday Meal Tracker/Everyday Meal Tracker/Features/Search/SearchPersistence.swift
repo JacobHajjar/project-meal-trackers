@@ -14,7 +14,6 @@ class SearchHistory: ObservableObject {
     var fileURL: URL
 
     init() {
-        // TODO: Create a path to a file named crosswalks.plist and store in fileURL
         let documentsDirectory =
             FileManager.default.urls(for: .documentDirectory,
                                      in: .userDomainMask).first!
@@ -33,7 +32,6 @@ class SearchHistory: ObservableObject {
     }
 
     func saveHistory() {
-        // TODO: Save the searchStrings array into a file
         let propertyListEncoder = PropertyListEncoder()
         if let encodedMeal = try? propertyListEncoder.encode(searchStrings) {
             try? encodedMeal.write(to: fileURL,
@@ -42,8 +40,6 @@ class SearchHistory: ObservableObject {
     }
 
     func loadHistory() {
-        // TODO: Load data from the file and store it in searchStrings
-
         let propertyListDecoder = PropertyListDecoder()
         if let retrievedMeal = try? Data(contentsOf: fileURL),
            let decodedMeal = try?
