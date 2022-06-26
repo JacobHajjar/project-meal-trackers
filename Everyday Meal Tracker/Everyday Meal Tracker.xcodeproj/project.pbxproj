@@ -11,6 +11,7 @@
 		1D01E8D228583AD800F66633 /* ListEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D01E8D128583AD800F66633 /* ListEntry.swift */; };
 		1D3B1290285DD09C0062C702 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B128F285DD09C0062C702 /* ContentView.swift */; };
 		1D3B1292285FF8130062C702 /* DailyIntake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B1291285FF8130062C702 /* DailyIntake.swift */; };
+		1DAC9628286659D00044AD68 /* IntakeHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAC9627286659D00044AD68 /* IntakeHistory.swift */; };
 		22EB5D082856519100928341 /* search_class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB5D072856519100928341 /* search_class.swift */; };
 		7AAD0BAE28514A6A0095DEA7 /* .gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = 7AAD0BAD28514A6A0095DEA7 /* .gitattributes */; };
 		7AC73419284F0FF300339115 /* Everyday_Meal_TrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC73418284F0FF300339115 /* Everyday_Meal_TrackerApp.swift */; };
@@ -50,6 +51,7 @@
 		1D01E8D128583AD800F66633 /* ListEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEntry.swift; sourceTree = "<group>"; };
 		1D3B128F285DD09C0062C702 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1D3B1291285FF8130062C702 /* DailyIntake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyIntake.swift; sourceTree = "<group>"; };
+		1DAC9627286659D00044AD68 /* IntakeHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeHistory.swift; sourceTree = "<group>"; };
 		22EB5D072856519100928341 /* search_class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = search_class.swift; sourceTree = "<group>"; };
 		7AAD0BAD28514A6A0095DEA7 /* .gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
 		7AC73415284F0FF300339115 /* Everyday Meal Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Everyday Meal Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +159,7 @@
 		7AFC4F9B284F106700EDC238 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1DAC9627286659D00044AD68 /* IntakeHistory.swift */,
 				1D01E8CD2857B90900F66633 /* Food.swift */,
 				1D3B1291285FF8130062C702 /* DailyIntake.swift */,
 			);
@@ -353,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DAC9628286659D00044AD68 /* IntakeHistory.swift in Sources */,
 				22EB5D082856519100928341 /* search_class.swift in Sources */,
 				7AC73425284F0FF400339115 /* Everyday_Meal_Tracker.xcdatamodeld in Sources */,
 				7AC73422284F0FF400339115 /* Persistence.swift in Sources */,

@@ -9,72 +9,101 @@ import SwiftUI
 import CoreData
 
 struct DashboardView: View {
-    @StateObject var currentIntake = DailyIntake()
+    @EnvironmentObject var appHistory : IntakeHistory
+    @State var intakeIndex : Int = 0
+    //@StateObject var curr_entIntake : DailyIntake
+
+    
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
                 VStack (spacing: 0) {
                     Spacer()
-                    Text("June 12, 2022")
-                    .bold()
-                    .font(.system(size: 20, weight: .bold, design: .default))
-                    .padding(.bottom, geometry.size.height / 40)
+                    HStack {
+                        Button {
+                            if appHistory.foodHistory.indices.contains(intakeIndex+1){
+                                intakeIndex+=1
+                            }
+                        } label: {
+                            Image(systemName: "chevron.left")
+                                .imageScale(.large)
+                                .foregroundColor(Color.black)
+                                //.disabled(<#T##Bool#>)
+                        }.frame(width: 50, height: 50)
+                        Text(appHistory.foodHistory[intakeIndex].currentDate.formatted(date: .long, time: .omitted))
+                        .bold()
+                        .font(.system(size: 20, weight: .bold, design: .default))
+                        Button {
+                            if appHistory.foodHistory.indices.contains(intakeIndex-1){
+                                intakeIndex-=1
+                            }
+                        } label: {
+                            Image(systemName: "chevron.right")
+                                .imageScale(.large)
+                                .foregroundColor(Color.black)
+                        }.frame(width: 50, height: 50)
+                    }
                     HStack {
                         VStack {
                             Text("Calories")
-                            Text("\(currentIntake.totalCalories, specifier: "%.1f")")
+                            Text("\(appHistory.foodHistory[intakeIndex].totalCalories, specifier: "%.1f")")
                             
                         }
                         Spacer()
                         VStack {
                             Text("Protein")
-                            Text("\(currentIntake.totalProtein, specifier: "%.1f")")
+                            Text("\(appHistory.foodHistory[intakeIndex].totalProtein, specifier: "%.1f")")
                         }
                         Spacer()
                         VStack {
                             Text("Carbs")
-                            Text("\(currentIntake.totalCarbs, specifier: "%.1f")")
+                            Text("\(appHistory.foodHistory[intakeIndex].totalCarbs, specifier: "%.1f")")
                         }
                         Spacer()
                         VStack {
                             Text("Fat")
-                            Text("\(currentIntake.totalFat, specifier: "%.1f")")
+                            Text("\(appHistory.foodHistory[intakeIndex].totalFat, specifier: "%.1f")")
                         }
                     }.frame(width: geometry.size.width - 60)
-                    .padding(.bottom, 5)
+                    .padding(.bottom, geometry.size.height / 40)
                 }
-                .frame(maxWidth: .infinity, maxHeight: geometry.size.height / 6)
+                .frame(maxWidth: .infinity, maxHeight: geometry.size.height / 5)
                 .background(Color.orange)
                 .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 10)
                 ZStack {
                     VStack (spacing: 0) {
-                        ScrollView {
                             VStack(spacing: 0) {
-                                ForEach($currentIntake.foodEaten) {
-                                    foodElement in
-                                        ListEntry(entryHeight: 60, entryWidth: geometry.size.width - 20, name: foodElement.name, calories: foodElement.calories, protein: foodElement.protein, carbohydrates: foodElement.carbohydrates,
-                                                  fat: foodElement.fat)
-                                }
+                                List {
+                                    ForEach($appHistory.foodHistory[intakeIndex].foodEaten) {
+                                        foodElement in
+                                            ListEntry(entryHeight: 60, entryWidth: geometry.size.width - 20, name: foodElement.name, calories: foodElement.calories, protein: foodElement.protein, carbohydrates: foodElement.carbohydrates,
+                                                      fat: foodElement.fat)
+                                    }.onDelete {
+                                        offset in
+                                        appHistory.foodHistory[intakeIndex].foodEaten.remove(atOffsets: offset)
+                                        appHistory.saveHistory()
+                                    }
+                                }.listStyle(.plain)
+                                    .padding(.leading, -10)
+                                    
                             }
-                        }
                         Spacer()
                     }
                     VStack {
                         Spacer()
-                        HStack {
+                        HStack (spacing: 0) {
                             Spacer()
                             Button {
-                                currentIntake.foodEaten.append(Food())
+                                appHistory.foodHistory[intakeIndex].foodEaten.append(Food())
                             } label: {
                                 Image(systemName: "plus")
                                     .imageScale(.large)
                                     .foregroundColor(Color.black)
-                            }.frame(width: 40, height: 40)
+                            }.frame(width: 50, height: 50)
                             .background(Color.orange)
-                            .foregroundColor(Color.white)
                             .cornerRadius(5)
                             .padding()
-                            
+                            .shadow(radius: 5)
                         }
                     }
                 }
@@ -83,11 +112,15 @@ struct DashboardView: View {
     }
 }
 
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            DashboardView()
-        }
+/*struct DashboardPrev : View {
+    @State var foodEaten : [Food] = [Food(), Food(), Food()]
+    var body: some View {
+        DashboardView(intake: foodEaten)
     }
-}
+}*/
+
+/*struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        DashboardView()
+    }
+}*/

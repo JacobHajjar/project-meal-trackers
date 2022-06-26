@@ -7,11 +7,13 @@
 
 import Foundation
 
-class DailyIntake : ObservableObject {
+struct DailyIntake : Codable {
     
-    init() {
-        
+    init(on currentDate: Date) {
+        self.currentDate = currentDate
     }
+    var foodEaten : [Food] = []
+    let currentDate : Date
     
     var totalCalories : Double {
         var sum : Double = 0
@@ -48,8 +50,6 @@ class DailyIntake : ObservableObject {
             }
         }
         return sum
-    } 
-    
-    @Published var foodEaten : [Food] = []
+    }
     
 }
