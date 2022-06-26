@@ -19,6 +19,7 @@ struct ListEntry: View {
     @FocusState private var proteinFieldIsFocused: Bool
     @FocusState private var carbFieldIsFocused: Bool
     @FocusState private var fatFieldIsFocused: Bool
+    @EnvironmentObject var appHistory : IntakeHistory
 
     var body: some View {
         VStack(spacing: 0) {
@@ -30,6 +31,9 @@ struct ListEntry: View {
                     "Enter Food Name",
                     text: $name).frame(width: entryWidth)
                     .multilineTextAlignment(.center)
+                    .onSubmit {
+                        appHistory.saveHistory()
+                    }
             }
             Spacer()
             HStack(spacing: 0) {
@@ -39,6 +43,8 @@ struct ListEntry: View {
                     .focused($calorieFieldIsFocused)
                     .onChange(of: calorieFieldIsFocused) {
                         _ in
+                        appHistory.saveHistory()
+                        print("Saved")
                         if doubleIsInvalid(of: calories) {
                             calories = ""
                         }
@@ -52,6 +58,7 @@ struct ListEntry: View {
                     .focused($proteinFieldIsFocused)
                     .onChange(of: proteinFieldIsFocused) {
                         _ in
+                        appHistory.saveHistory()
                         if doubleIsInvalid(of: protein) {
                             protein = ""
                         }
@@ -65,6 +72,7 @@ struct ListEntry: View {
                     .focused($carbFieldIsFocused)
                     .onChange(of: carbFieldIsFocused) {
                         _ in
+                        appHistory.saveHistory()
                         if doubleIsInvalid(of: carbohydrates) {
                             carbohydrates = ""
                         }
@@ -78,6 +86,7 @@ struct ListEntry: View {
                     .focused($fatFieldIsFocused)
                     .onChange(of: fatFieldIsFocused) {
                         _ in
+                        appHistory.saveHistory()
                         if doubleIsInvalid(of: fat) {
                             fat = ""
                         }
@@ -90,7 +99,7 @@ struct ListEntry: View {
         }.frame(width: entryWidth, height: entryHeight)
             .background(Color.orange.opacity(0.7))
             .cornerRadius(10)
-            .padding(.top, 8)
+            .padding(.all, 0)
     }
 }
 

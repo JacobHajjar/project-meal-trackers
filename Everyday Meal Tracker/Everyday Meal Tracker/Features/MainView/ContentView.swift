@@ -11,33 +11,33 @@ enum Screens {
     case dashboard
     case journal
 }
+
 struct ContentView: View {
-    @State var currentView: Screens = .journal
+    @State var currentView: Screens = .dashboard
+    @StateObject var appHistory = IntakeHistory()
     var body: some View {
         GeometryReader { geometry in
-            VStack (spacing: 0) {
-                switch(currentView) {
+            VStack(spacing: 0) {
+                switch currentView {
                     case .dashboard:
-                        DashboardView()
+                    DashboardView()
                     default:
-                        JournalView()
+                        DashboardView()
                 }
-                Spacer()
-                ZStack {
-                   Rectangle()
-                    .fill(Color.orange)
-                    .frame(width: geometry.size.width, height: geometry.size.height / 10)
-                    .shadow(color: Color.black.opacity(0.4), radius: 10)
-                    .ignoresSafeArea()
-                    HStack {
+                HStack {
+                    Spacer()
+                    VStack {
                         Spacer()
                         Button {
                             currentView = .journal
                         } label: {
-                            Image(systemName: "book.closed.fill")
+                            Image(systemName: "magnifyingglass")
                                 .imageScale(.large)
                                 .foregroundColor(Color.black)
-                        }
+                        }.padding(.bottom, geometry.size.height / 40)
+                    }
+                    Spacer()
+                    VStack {
                         Spacer()
                         Button {
                             currentView = .dashboard
@@ -45,20 +45,31 @@ struct ContentView: View {
                             Image(systemName: "house.fill")
                                 .imageScale(.large)
                                 .foregroundColor(Color.black)
-                        }
+                        }.padding(.bottom, geometry.size.height / 40)
+                    }
+                    Spacer()
+                    VStack {
                         Spacer()
                         Button {
-                            currentView = .dashboard //set graph view
+                            currentView = .dashboard // set graph view
                         } label: {
                             Image(systemName: "chart.xyaxis.line")
                                 .imageScale(.large)
                                 .foregroundColor(Color.black)
                         }
-                        Spacer()
-                    }
+                    }.padding(.bottom, geometry.size.height / 40)
+                    Spacer()
                 }
-            }.ignoresSafeArea()
-        }
+                .ignoresSafeArea()
+                .frame(width: geometry.size.width, height: geometry.size.height / 16)
+                .background(Color.orange)
+                .shadow(color: Color.black.opacity(0.4), radius: 10)
+            }
+        }.environmentObject(appHistory)
+            .onAppear {
+                appHistory.loadHistory()
+                print("Loaded")
+            }
     }
 }
 

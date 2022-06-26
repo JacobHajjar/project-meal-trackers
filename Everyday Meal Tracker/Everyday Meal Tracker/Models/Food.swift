@@ -7,11 +7,15 @@
 
 import Foundation
 
-class Food : ObservableObject, Identifiable {
+struct Food : Identifiable, Codable {
+    init() {
+        
+    }
     var id = UUID()
-    @Published var name : String = ""
-    @Published var calories : String = ""
-    @Published var protein : String = ""
-    @Published var carbohydrates : String = ""
-    @Published var fat : String = ""
+    var name : String = ""
+    var calories : String = ""
+    var protein : String = ""
+    var carbohydrates : String = ""
+    var fat : String = ""
+    
 }
