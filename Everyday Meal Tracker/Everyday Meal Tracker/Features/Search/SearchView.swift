@@ -11,7 +11,6 @@ struct SearchView: View {
     @StateObject var finder = MealFinder()
     @State var crosswalkname: String = ""
     @StateObject var history = SearchHistory()
-    // @StateObject var MealData = MealDataClass()
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
@@ -64,55 +63,6 @@ struct SearchView: View {
             }.padding()
         }
     }
-//    var body: some View {
-//        NavigationView {
-//            List {
-//                ForEach(MealData.meals) {
-//                    meal in
-//                    NavigationLink(destination: VStack {
-//                        VStack {
-//                            Text("Calories: \(meal.calorie)")
-//                            Text("Protein: \(meal.fat)")
-//                            Text("Carbs: \(meal.fat)")
-//                            Text("Fat: \(meal.fat)")
-//                            Spacer()
-//                        }
-//                        VStack {
-//                            Button(action: {
-//                                print("Success!")
-//                            }) {
-//                                Text("Add")
-//                            }.padding()
-//                                .background(Color.black)
-//                                .foregroundColor(Color.white)
-//                                .cornerRadius(10)
-//                        }
-//                    }) {
-//                        Text(meal.name)
-//                    }
-//                }
-//            }
-//            .searchable(text: $searchString, placement: .navigationBarDrawer(displayMode: .always), prompt: "Look for something"){
-//                Text("Recent searches")
-//                    .font(.headline)
-//                List(history.searchStrings, id: \.self) {
-//                    storedSearchString in
-//                    Button(action: {
-//                        searchString = storedSearchString
-//                        finder.find(searchString)
-//                        history.addSearchString(searchString)
-//                    }) {
-//                        Text(storedSearchString)
-//                    }
-//                }
-//            }
-//            .onChange(of: searchString) {
-//                print(searchString)
-//            }
-//            .navigationTitle("Meal Search")
-//
-//        }.environmentObject(MealData)
-//    }
 }
 
 struct SearchResultView: View {
