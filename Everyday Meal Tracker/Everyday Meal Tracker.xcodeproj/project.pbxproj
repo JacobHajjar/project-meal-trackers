@@ -15,9 +15,6 @@
 		1D9238C2286A552100789FE6 /* SearchClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9238BF286A552100789FE6 /* SearchClass.swift */; };
 		1D9238C3286A552100789FE6 /* SearchPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9238C0286A552100789FE6 /* SearchPersistence.swift */; };
 		1DAC9628286659D00044AD68 /* IntakeHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAC9627286659D00044AD68 /* IntakeHistory.swift */; };
-		7A3DA1A9286A559400587F2F /* SearchClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3DA1A6286A559400587F2F /* SearchClass.swift */; };
-		7A3DA1AA286A559400587F2F /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3DA1A7286A559400587F2F /* Modifiers.swift */; };
-		7A3DA1AB286A559400587F2F /* SearchPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3DA1A8286A559400587F2F /* SearchPersistence.swift */; };
 		7A3DA1AD286A55DE00587F2F /* NewProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3DA1AC286A55DE00587F2F /* NewProfileView.swift */; };
 		7A3DA1AF286A561000587F2F /* StartupModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3DA1AE286A561000587F2F /* StartupModifiers.swift */; };
 		7A3DA1B1286A565700587F2F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3DA1B0286A565700587F2F /* User.swift */; };
@@ -62,9 +59,6 @@
 		1D9238BF286A552100789FE6 /* SearchClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchClass.swift; sourceTree = "<group>"; };
 		1D9238C0286A552100789FE6 /* SearchPersistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPersistence.swift; sourceTree = "<group>"; };
 		1DAC9627286659D00044AD68 /* IntakeHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeHistory.swift; sourceTree = "<group>"; };
-		7A3DA1A6286A559400587F2F /* SearchClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchClass.swift; sourceTree = "<group>"; };
-		7A3DA1A7286A559400587F2F /* Modifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
-		7A3DA1A8286A559400587F2F /* SearchPersistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPersistence.swift; sourceTree = "<group>"; };
 		7A3DA1AC286A55DE00587F2F /* NewProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProfileView.swift; sourceTree = "<group>"; };
 		7A3DA1AE286A561000587F2F /* StartupModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupModifiers.swift; sourceTree = "<group>"; };
 		7A3DA1B0286A565700587F2F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -120,6 +114,13 @@
 			path = MainView;
 			sourceTree = "<group>";
 		};
+		1D9238C7286A695800789FE6 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		7AC7340C284F0FF300339115 = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +129,7 @@
 				7AC7342D284F0FF400339115 /* Everyday Meal TrackerTests */,
 				7AC73437284F0FF400339115 /* Everyday Meal TrackerUITests */,
 				7AC73416284F0FF300339115 /* Products */,
+				1D9238C7286A695800789FE6 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -377,19 +379,16 @@
 				1DAC9628286659D00044AD68 /* IntakeHistory.swift in Sources */,
 				7AC73425284F0FF400339115 /* Everyday_Meal_Tracker.xcdatamodeld in Sources */,
 				7AC73422284F0FF400339115 /* Persistence.swift in Sources */,
-				7A3DA1AA286A559400587F2F /* Modifiers.swift in Sources */,
 				7AC7341B284F0FF300339115 /* DashboardView.swift in Sources */,
 				1D3B1290285DD09C0062C702 /* ContentView.swift in Sources */,
 				7AFC4FB22850100D00EDC238 /* SearchView.swift in Sources */,
 				7A3DA1B1286A565700587F2F /* User.swift in Sources */,
-				7A3DA1A9286A559400587F2F /* SearchClass.swift in Sources */,
 				1D3B1292285FF8130062C702 /* DailyIntake.swift in Sources */,
 				1D9238C2286A552100789FE6 /* SearchClass.swift in Sources */,
 				1D01E8CE2857B90900F66633 /* Food.swift in Sources */,
 				7A3DA1AD286A55DE00587F2F /* NewProfileView.swift in Sources */,
 				7AFC4FAA284F2BC000EDC238 /* JournalView.swift in Sources */,
 				7A3DA1AF286A561000587F2F /* StartupModifiers.swift in Sources */,
-				7A3DA1AB286A559400587F2F /* SearchPersistence.swift in Sources */,
 				7AC73419284F0FF300339115 /* Everyday_Meal_TrackerApp.swift in Sources */,
 				1D9238C3286A552100789FE6 /* SearchPersistence.swift in Sources */,
 				1D01E8D228583AD800F66633 /* ListEntry.swift in Sources */,
