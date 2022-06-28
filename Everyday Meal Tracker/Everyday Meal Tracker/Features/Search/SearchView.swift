@@ -9,28 +9,22 @@ import SwiftUI
 struct SearchView: View {
     @State var searchString: String = ""
     @StateObject var finder = MealFinder()
-    @State var crosswalkname: String = ""
     @StateObject var history = SearchHistory()
-    @EnvironmentObject var appHistory : IntakeHistory
+    @EnvironmentObject var appHistory: IntakeHistory
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                Text("Meal Search")
-                    .font(.largeTitle).padding(.top,60)
-                HStack{
-                TextField("Looking for something..", text: $searchString)
-                    .modifier(TextEntry())
-
-                Button(action: {
-                    finder.find(searchString)
-                    history.addSearchString(searchString)
-                }) {
-                    Text("Search")
+                Text("Meal Search").font(.largeTitle)
+                HStack {
+                    TextField("Looking for something..", text: $searchString).modifier(SearchTextEntry())
+                    Button(action: {
+                        finder.find(searchString)
+                        history.addSearchString(searchString)
+                    }) {
+                        Text("Search")
+                    }.modifier(SearchButtonDesign()).padding(.bottom, 5)
                 }
-                .modifier(ButtonDesign())    .padding(.bottom, 5)
-                }
-                Text("Recent searches")
-                    .font(.headline)
+                Text("Recent searches").font(.headline)
                 List(history.searchStrings, id: \.self) {
                     storedSearchString in
                     Button(action: {
@@ -41,8 +35,7 @@ struct SearchView: View {
                         Text(storedSearchString)
                     }
                 }.frame(height: 300)
-                Text("Results")
-                    .font(.headline)
+                Text("Results").font(.headline)
                 VStack(alignment: .leading) {
                     Spacer()
                     Text(finder.firstFoundName)
@@ -63,18 +56,11 @@ struct SearchView: View {
                     }) {
                         Text("Add to Journal")
                     }
-                    .modifier(ButtonDesign())
+                    .modifier(SearchButtonDesign())
                 }
-                // Image(uiImage: finder.image)
                 Spacer()
             }.padding()
         }
-    }
-}
-
-struct SearchResultView: View {
-    var body: some View {
-        Text("Second Screen")
     }
 }
 

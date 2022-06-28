@@ -14,12 +14,8 @@ class SearchHistory: ObservableObject {
     var fileURL: URL
 
     init() {
-        let documentsDirectory =
-            FileManager.default.urls(for: .documentDirectory,
-                                     in: .userDomainMask).first!
-        fileURL =
-            documentsDirectory.appendingPathComponent("mealSearch")
-                .appendingPathExtension("plist")
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        fileURL = documentsDirectory.appendingPathComponent("mealSearch").appendingPathExtension("plist")
         loadHistory()
     }
 
@@ -34,8 +30,7 @@ class SearchHistory: ObservableObject {
     func saveHistory() {
         let propertyListEncoder = PropertyListEncoder()
         if let encodedMeal = try? propertyListEncoder.encode(searchStrings) {
-            try? encodedMeal.write(to: fileURL,
-                                   options: .noFileProtection)
+            try? encodedMeal.write(to: fileURL, options: .noFileProtection)
         }
     }
 
@@ -43,8 +38,7 @@ class SearchHistory: ObservableObject {
         let propertyListDecoder = PropertyListDecoder()
         if let retrievedMeal = try? Data(contentsOf: fileURL),
            let decodedMeal = try?
-           propertyListDecoder.decode([String].self,
-                                      from: retrievedMeal)
+           propertyListDecoder.decode([String].self, from: retrievedMeal)
         {
             searchStrings = decodedMeal
         }
