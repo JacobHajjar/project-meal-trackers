@@ -1,5 +1,5 @@
 //
-//  search_class.swift
+//  SearchClass.swift
 //  Everyday Meal Tracker
 //
 //  Created by Vamshikrishna Reddy Katipally on 6/12/22.
@@ -25,26 +25,20 @@ struct foodNutrient: Codable {
 
 class MealFinder: ObservableObject {
     @Published var firstFoundName = ""
-    @Published var ResultCalories : Double = 0
-    @Published var ResultFat : Double = 0
-    @Published var ResultProtein : Double = 0
-    @Published var ResultCarbohydrates : Double = 0
-
-    
-    @Published var image = UIImage()
+    @Published var ResultCalories: Double = 0
+    @Published var ResultFat: Double = 0
+    @Published var ResultProtein: Double = 0
+    @Published var ResultCarbohydrates: Double = 0
 
     private var accessToken = "Y4r5i58ZoYepqOqzpZxqhK1Ehdb1F6OQDb0E1c5U"
 
     func find(_ searchString: String) {
-        print("searchString")
-        print(searchString)
-
         guard searchString != "" else {
             return
         }
 
         let usdaSearchURL = "https://api.nal.usda.gov/fdc/v1/foods/search?query=\(searchString)&pageSize=1&api_key=\(accessToken)"
-        
+
         if let urlString = usdaSearchURL.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed),
            let url = URL(string: urlString)
         {
@@ -72,4 +66,3 @@ class MealFinder: ObservableObject {
         }
     }
 }
-
