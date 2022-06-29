@@ -60,7 +60,6 @@ struct NewProfileView: View {
         } else {
             GeometryReader { geometry in
                 ScrollView {
-                    Spacer()
                     VStack {
                         Spacer()
                         // Mark: Skip Button
@@ -90,6 +89,7 @@ struct NewProfileView: View {
                         // Mark: Person Icon
                         Image(systemName: "person.circle")
                             .font(.system(size: 150))
+                            .foregroundColor(Color("InvertedColorSet"))
                         
                         // Mark: Input Name
                         ZStack {
@@ -168,7 +168,7 @@ struct NewProfileView: View {
                                         self.verify = .goalFailed
                                     }
                                 }
-                            } .modifier(ButtonDesign())
+                            } .modifier(ProfileButtonDesign())
                                 .alert(isPresented: $verifyAlert) {
                                     switch verify {
                                     case .passed:
@@ -217,7 +217,7 @@ struct NewProfileView: View {
                                     self.first_time = true
                                     self.changes = .noChanges
                                 }
-                            } .modifier(MainButtonDesign())
+                            } .modifier(ProfileButtonDesign())
                                 .alert(isPresented: $continueAlert) {
                                     switch changes {
                                         // If user did not verify first
@@ -251,7 +251,7 @@ struct NewProfileView: View {
                         } .frame(width: geometry.size.width)
                     }
                 } .frame(width: geometry.size.width, height: geometry.size.height)
-                    .background(.orange.opacity(0.2))
+                    .background(Color("ProfileColorSet"))
             }
         }
     }
