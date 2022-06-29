@@ -53,6 +53,8 @@ struct SearchView: View {
                         foundFood.carbohydrates = String(finder.ResultCarbohydrates)
                         foundFood.fat = String(finder.ResultFat)
                         appHistory.foodHistory[0].foodEaten.append(foundFood)
+                        appHistory.saveHistory()
+
                     }) {
                         Text("Add to Journal")
                     }

@@ -10,6 +10,7 @@ import SwiftUI
 enum Screens {
     case dashboard
     case search
+    case graphs
 }
 
 struct ContentView: View {
@@ -20,9 +21,11 @@ struct ContentView: View {
             VStack(spacing: 0) {
                 switch currentView {
                     case .dashboard:
-                    DashboardView()
-                case .search:
-                    SearchView()
+                        DashboardView()
+                    case .search:
+                        SearchView()
+                    case .graphs:
+                        GraphsView()
                     default:
                         DashboardView()
                 }
@@ -53,7 +56,7 @@ struct ContentView: View {
                     VStack {
                         Spacer()
                         Button {
-                            currentView = .dashboard // set graph view
+                            currentView = .graphs
                         } label: {
                             Image(systemName: "chart.xyaxis.line")
                                 .imageScale(.large)

@@ -18,10 +18,12 @@ struct GraphsView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                // Mark: Scrollable Data View
+                // MARK: Scrollable Data View
+
                 ScrollView {
                     VStack(alignment: .center, spacing: 24) {
-                        // Mark: Title
+                        // MARK: Title
+
                         Text("\(manager.getName())'s Journal Overview")
                             .bold()
                             .font(.custom("Euphemia UCAS", size: 20))
@@ -37,7 +39,6 @@ struct GraphsView: View {
                                 .cornerRadius(10)
                                 .frame(width: geometry.size.width-14, height: geometry.size.height/2)
                                 
-                            
                             // Protein Graph
                             GraphDataViewer(data: data[1], chart_title: "Protein", colorGradient: GradientColors.blue, lineColor: .blue)
                                 .padding(4)
@@ -64,11 +65,9 @@ struct GraphsView: View {
                                 .foregroundColor(Color("InvertedColorSet"))
                                 .padding()
                         }
-                        
                     } // end of ScrollView's VStack
                 } // end of ScrollView
-            } .frame(width: geometry.size.width, height: geometry.size.height)
-                
+            }.frame(width: geometry.size.width, height: geometry.size.height)
         }
     }
 }

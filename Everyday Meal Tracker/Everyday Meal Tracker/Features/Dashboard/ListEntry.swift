@@ -19,7 +19,7 @@ struct ListEntry: View {
     @FocusState private var proteinFieldIsFocused: Bool
     @FocusState private var carbFieldIsFocused: Bool
     @FocusState private var fatFieldIsFocused: Bool
-    @EnvironmentObject var appHistory : IntakeHistory
+    @EnvironmentObject var appHistory: IntakeHistory
 
     var body: some View {
         VStack(spacing: 0) {

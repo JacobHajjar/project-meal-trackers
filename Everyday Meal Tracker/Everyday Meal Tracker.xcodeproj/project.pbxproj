@@ -14,6 +14,7 @@
 		1D9238C1286A552100789FE6 /* SearchModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9238BE286A552100789FE6 /* SearchModifiers.swift */; };
 		1D9238C2286A552100789FE6 /* SearchClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9238BF286A552100789FE6 /* SearchClass.swift */; };
 		1D9238C3286A552100789FE6 /* SearchPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9238C0286A552100789FE6 /* SearchPersistence.swift */; };
+		1D9238CA286C5FAA00789FE6 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 1D9238C9286C5FAA00789FE6 /* SwiftUICharts */; };
 		1DAC9628286659D00044AD68 /* IntakeHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAC9627286659D00044AD68 /* IntakeHistory.swift */; };
 		7A3DA1AD286A55DE00587F2F /* NewProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3DA1AC286A55DE00587F2F /* NewProfileView.swift */; };
 		7A3DA1AF286A561000587F2F /* StartupModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3DA1AE286A561000587F2F /* StartupModifiers.swift */; };
@@ -90,6 +91,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7ADCC834286B9E3700C06001 /* SwiftUICharts in Frameworks */,
+				1D9238CA286C5FAA00789FE6 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +271,7 @@
 			name = "Everyday Meal Tracker";
 			packageProductDependencies = (
 				7ADCC833286B9E3700C06001 /* SwiftUICharts */,
+				1D9238C9286C5FAA00789FE6 /* SwiftUICharts */,
 			);
 			productName = "Everyday Meal Tracker";
 			productReference = 7AC73415284F0FF300339115 /* Everyday Meal Tracker.app */;
@@ -344,6 +347,7 @@
 			mainGroup = 7AC7340C284F0FF300339115;
 			packageReferences = (
 				7ADCC832286B9E3500C06001 /* XCRemoteSwiftPackageReference "ChartView" */,
+				1D9238C8286C5FAA00789FE6 /* XCRemoteSwiftPackageReference "ChartView" */,
 			);
 			productRefGroup = 7AC73416284F0FF300339115 /* Products */;
 			projectDirPath = "";
@@ -406,7 +410,7 @@
 				7ADCC836286BA44E00C06001 /* GraphsClass.swift in Sources */,
 				7A3DA1B3286A576400587F2F /* LaunchView.swift in Sources */,
 				7ADCC831286AD97600C06001 /* GraphsView.swift in Sources */,
-				1D9238C1286A552100789FE6 /* Modifiers.swift in Sources */,
+				1D9238C1286A552100789FE6 /* SearchModifiers.swift in Sources */,
 				1D9238C1286A552100789FE6 /* SearchModifiers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -728,6 +732,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1D9238C8286C5FAA00789FE6 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		7ADCC832286B9E3500C06001 /* XCRemoteSwiftPackageReference "ChartView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AppPear/ChartView";
@@ -739,6 +751,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1D9238C9286C5FAA00789FE6 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D9238C8286C5FAA00789FE6 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
 		7ADCC833286B9E3700C06001 /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7ADCC832286B9E3500C06001 /* XCRemoteSwiftPackageReference "ChartView" */;
