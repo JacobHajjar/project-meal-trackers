@@ -21,10 +21,10 @@ struct LaunchView: View {
                     VStack {
                         Image(systemName: "fork.knife.circle")
                             .font(.system(size: 150))
-                        
+                            .foregroundColor(.orange)
                         Text("Everyday Meal Tracker")
                             .font(.system(size: 20, design: .rounded))
-                            .foregroundColor(.black.opacity(0.8))
+                            .foregroundColor(.orange.opacity(0.8))
                     }
                     .scaleEffect(size)
                     .opacity(opacity)
@@ -35,7 +35,6 @@ struct LaunchView: View {
                         }
                     }
                 }
-                
                 .ignoresSafeArea()
             }
             .onAppear {

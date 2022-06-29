@@ -11,7 +11,7 @@ struct WelcomeText: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(.custom("Euphemia UCAS", size: 30))
-            .foregroundColor(.red)
+            .foregroundColor(Color("InvertedColorSet"))
             .padding()
     }
 }
@@ -19,7 +19,7 @@ struct WelcomeText: ViewModifier {
 struct InputText: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(.custom("Euphemia UCAS", size: 20))
+            .font(.custom("Euphemia UCAS", size: 15))
             .padding()
     }
 }
@@ -33,14 +33,14 @@ struct SkipButton: ViewModifier {
     }
 }
 
-struct MainButtonDesign: ViewModifier {
+struct ProfileButtonDesign: ViewModifier {
     func body(content: Content) -> some View {
         content
             .padding()
             .frame(width:120, height: 50)
-            .background(Color.red)
-            .cornerRadius(10)
-            .foregroundColor(.black)
+            .background(Color("ButtonColors"))
+            .cornerRadius(30)
+            .foregroundColor(Color("InvertedColorSet"))
         
     }
 }

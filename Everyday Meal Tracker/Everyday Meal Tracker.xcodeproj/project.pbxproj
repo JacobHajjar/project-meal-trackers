@@ -29,7 +29,9 @@
 		7AC7342F284F0FF400339115 /* Everyday_Meal_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC7342E284F0FF400339115 /* Everyday_Meal_TrackerTests.swift */; };
 		7AC73439284F0FF400339115 /* Everyday_Meal_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC73438284F0FF400339115 /* Everyday_Meal_TrackerUITests.swift */; };
 		7AC7343B284F0FF400339115 /* Everyday_Meal_TrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC7343A284F0FF400339115 /* Everyday_Meal_TrackerUITestsLaunchTests.swift */; };
-		7AFC4FAA284F2BC000EDC238 /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFC4FA9284F2BC000EDC238 /* JournalView.swift */; };
+		7ADCC831286AD97600C06001 /* GraphsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCC830286AD97600C06001 /* GraphsView.swift */; };
+		7ADCC834286B9E3700C06001 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 7ADCC833286B9E3700C06001 /* SwiftUICharts */; };
+		7ADCC836286BA44E00C06001 /* GraphsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCC835286BA44C00C06001 /* GraphsClass.swift */; };
 		7AFC4FB22850100D00EDC238 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFC4FB12850100D00EDC238 /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,8 +78,9 @@
 		7AC73434284F0FF400339115 /* Everyday Meal TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Everyday Meal TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AC73438284F0FF400339115 /* Everyday_Meal_TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Everyday_Meal_TrackerUITests.swift; sourceTree = "<group>"; };
 		7AC7343A284F0FF400339115 /* Everyday_Meal_TrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Everyday_Meal_TrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7ADCC830286AD97600C06001 /* GraphsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphsView.swift; sourceTree = "<group>"; };
+		7ADCC835286BA44C00C06001 /* GraphsClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphsClass.swift; sourceTree = "<group>"; };
 		7AFC4FA5284F26E700EDC238 /* Everyday-Meal-Tracker-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Everyday-Meal-Tracker-Info.plist"; sourceTree = SOURCE_ROOT; };
-		7AFC4FA9284F2BC000EDC238 /* JournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
 		7AFC4FB12850100D00EDC238 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ADCC834286B9E3700C06001 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,7 +202,7 @@
 				1D3B128E285DD0840062C702 /* MainView */,
 				7AFC4FB02850091700EDC238 /* Search */,
 				7AFC4FA1284F127900EDC238 /* Dashboard */,
-				7AFC4FA8284F2B8A00EDC238 /* Journal */,
+				7AFC4FA8284F2B8A00EDC238 /* Graphs */,
 				7AFC4F9E284F111800EDC238 /* Startup */,
 			);
 			path = Features;
@@ -226,13 +230,15 @@
 			path = Dashboard;
 			sourceTree = "<group>";
 		};
-		7AFC4FA8284F2B8A00EDC238 /* Journal */ = {
+		7AFC4FA8284F2B8A00EDC238 /* Graphs */ = {
 			isa = PBXGroup;
 			children = (
-				7AFC4FA9284F2BC000EDC238 /* JournalView.swift */,
+				7ADCC830286AD97600C06001 /* GraphsView.swift */,
+				7ADCC835286BA44C00C06001 /* GraphsClass.swift */,
 			);
-			path = Journal;
-			sourceTree = "<group>";
+			name = Graphs;
+			path = "Everyday Meal Tracker/Features/Graphs";
+			sourceTree = SOURCE_ROOT;
 		};
 		7AFC4FB02850091700EDC238 /* Search */ = {
 			isa = PBXGroup;
@@ -261,6 +267,9 @@
 			dependencies = (
 			);
 			name = "Everyday Meal Tracker";
+			packageProductDependencies = (
+				7ADCC833286B9E3700C06001 /* SwiftUICharts */,
+			);
 			productName = "Everyday Meal Tracker";
 			productReference = 7AC73415284F0FF300339115 /* Everyday Meal Tracker.app */;
 			productType = "com.apple.product-type.application";
@@ -333,6 +342,9 @@
 				Base,
 			);
 			mainGroup = 7AC7340C284F0FF300339115;
+			packageReferences = (
+				7ADCC832286B9E3500C06001 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = 7AC73416284F0FF300339115 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -387,12 +399,14 @@
 				1D9238C2286A552100789FE6 /* SearchClass.swift in Sources */,
 				1D01E8CE2857B90900F66633 /* Food.swift in Sources */,
 				7A3DA1AD286A55DE00587F2F /* NewProfileView.swift in Sources */,
-				7AFC4FAA284F2BC000EDC238 /* JournalView.swift in Sources */,
 				7A3DA1AF286A561000587F2F /* StartupModifiers.swift in Sources */,
 				7AC73419284F0FF300339115 /* Everyday_Meal_TrackerApp.swift in Sources */,
 				1D9238C3286A552100789FE6 /* SearchPersistence.swift in Sources */,
 				1D01E8D228583AD800F66633 /* ListEntry.swift in Sources */,
+				7ADCC836286BA44E00C06001 /* GraphsClass.swift in Sources */,
 				7A3DA1B3286A576400587F2F /* LaunchView.swift in Sources */,
+				7ADCC831286AD97600C06001 /* GraphsView.swift in Sources */,
+				1D9238C1286A552100789FE6 /* Modifiers.swift in Sources */,
 				1D9238C1286A552100789FE6 /* SearchModifiers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -712,6 +726,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7ADCC832286B9E3500C06001 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = exactVersion;
+				version = 1.5.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7ADCC833286B9E3700C06001 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7ADCC832286B9E3500C06001 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		7AC73423284F0FF400339115 /* Everyday_Meal_Tracker.xcdatamodeld */ = {
