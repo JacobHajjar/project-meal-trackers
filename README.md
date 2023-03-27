@@ -1,1 +1,1 @@
-# CPSC411-Food-Tracker
+# Calorie Tracker Application
